@@ -18,7 +18,6 @@ class CreateJugadorsTable extends Migration
             $table->string('Username');
             $table->string('Password');
             $table->integer('Rango');
-            $table->timestamps();
         });
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Jugador;
 
 use Illuminate\Http\Request;
 
@@ -13,8 +14,8 @@ class ControladorJugador extends Controller
      */
     public function index()
     {
-        $jugador = Jugador::all();
-        return view('index', compact('jugador'));
+        $jugadors = Jugador::all();
+        return view('CrearJugador', compact('jugadors'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ControladorJugador extends Controller
      */
     public function create()
     {
-        return view('welcome');
+        return view('CrearJugador');
     }
 
     /**
