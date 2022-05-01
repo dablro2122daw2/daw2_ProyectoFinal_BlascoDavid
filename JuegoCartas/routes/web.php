@@ -22,6 +22,9 @@ Route::get('/login', function () {
 Route::get('/CrearJugador', function () {
     return view('CrearJugador');
 });
+Route::get('/MenuJugador', function () {
+    return view('index');
+});
 
 
 Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');

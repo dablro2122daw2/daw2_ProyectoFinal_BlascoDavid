@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Jugador;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 
@@ -36,13 +37,14 @@ class ControladorJugador extends Controller
      */
     public function store(Request $request)
     {
-        $nouJugador = $request->validate([
-            'Username' => 'required|max:255',
-            'Password' => 'required|max:255',
+        $jugador = new Jugador([
+            'Username' => $request->get('Username'),
+            'Password' => Hash::make($request->get('Password')),
+            'Rango' => 100
         ]);
-        $jugador = Jugador::create($nouJugador);
 
-        return redirect('/jugadors')->with('completed', 'Jugador creat!');
+        $jugador->save();
+        return redirect('/')->with('completed', 'Jugador creat!');
     }
 
     /**

@@ -2,7 +2,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class LoginControlador extends Controller
+use App\Models\Jugador;
+use Illuminate\Support\Facades\Hash;
+
+class ControladorLogin extends Controller
 {
  /**
  * Handle an authentication attempt.
@@ -10,18 +13,41 @@ class LoginControlador extends Controller
  * @param \Illuminate\Http\Request $peticio
  * @return \Illuminate\Http\Response
  */
+public function username()
+{
+    return 'Username';
+}
+
  public function autentica(Request $peticio)
  {
- $credencials = $peticio->validate([
- 'Username' => ['required', 'Username'],
- 'Password' => ['required'],
- ]);
- if (Auth::attempt($credencials)) {
- $peticio->session()->regenerate();
- return view('welcome');
- }
- return back()->withErrors([
- 'Username' => 'Les credencials no corresponen a un jugador existent.',
- ]);
+    
+    
+    $credencials = $peticio->validate([
+    'Username' => ['required'],
+    'Password' => ['required'],
+    ]);
+
+   //Intento de Busquda de Usuario/Contraseña Automatica (No funciona)
+    /*if (Auth::attempt(['Username' => $peticio->Username, 'Password' => Hash::make($peticio->Password)])) {
+    $peticio->session()->regenerate();
+    return view('index');
+    }
+    return back()->withErrors([
+    'Username' => 'Les credencials no corresponen a un jugador existent.',
+    ]);*/
+
+
+    //Acabo decidiendo hacerlo de forma manual usando Laravel, que al menos funciona.
+    $user = Jugador::where('Username', $peticio->Username)->first();
+
+    if (isset($user['Password']) && Hash::check($peticio->Password, $user["Password"])) {
+      Auth::login($user);
+      return view('index');
+    }
+    else {
+      return back()->withErrors([
+         'Username' => 'Les credencials no corresponen a un jugador existent.',
+         ]);
+    }
  }
 }
