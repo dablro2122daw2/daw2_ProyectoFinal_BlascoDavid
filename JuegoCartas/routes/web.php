@@ -25,9 +25,15 @@ Route::get('/CrearJugador', function () {
 Route::get('/MenuJugador', function () {
     return view('index');
 });
+Route::get('/EliminarJugador', function () {
+    return view('EliminarJugador');
+});
 
 
 Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
+Route::get('/logout','ControladorLogin@logout')->name('/');
 
+
+Route::get('/destroy','ControladorJugador@destroy')->name('confirmarEliminacio');
 
 Route::resource('jugadors', ControladorJugador::class);

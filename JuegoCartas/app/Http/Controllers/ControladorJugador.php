@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Jugador;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ControladorJugador extends Controller
@@ -94,10 +94,30 @@ class ControladorJugador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $peticio)
     {
+        /*
         $jugador = Jugador::findOrFail($id);
         $jugador->delete();
         return redirect('/jugadors')->with('completed', 'Jugador Eliminat!');
+        */
+
+        $credencials = $peticio->validate([
+            'Username' => ['required'],
+            'Password' => ['required'],
+        ]);
+
+        $user = Jugador::where('Username', $peticio->Username)->first();
+
+        if (isset($user['Password']) && Hash::check($peticio->Password, $user["Password"])) {
+        Auth::logout($user);
+        $user->delete();
+        return redirect('/');
+        }
+        else {
+        return back()->withErrors([
+            'Username' => 'Les credencials no corresponen al seu Compte de Jugador.',
+            ]);
+        }
     }
 }
