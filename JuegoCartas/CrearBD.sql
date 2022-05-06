@@ -4,4 +4,4 @@ use JocCartes;
 
 select * from jugadors;
 
-delete from jugadors where Username='Arnau';
+delete from jugadors where id=6;

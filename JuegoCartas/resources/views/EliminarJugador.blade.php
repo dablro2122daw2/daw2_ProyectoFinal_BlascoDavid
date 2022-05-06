@@ -5,7 +5,9 @@
 <h1>Eliminació del Compte</h1>
 <div class="card mt-5">
   <div class="card-header">
-    ¿Estas segur que vols eliminar el teu compte?<br>
+    ¿Estas segur que vols eliminar el teu compte?</p>
+
+    Especifique el seu Username y el seu Password per confirmar aquest procés.<br>
 
   </div>
 

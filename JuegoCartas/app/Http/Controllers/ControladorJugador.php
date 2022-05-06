@@ -77,15 +77,15 @@ class ControladorJugador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $peticio)
     {
-        $datos = $request->validate([
-            'Username' => 'required|max:255',
-            'Password' => 'required|max:255',
+        $credencials = $peticio->validate([
+            'Username' => ['required'],
+            'Password' => ['required'],
         ]);
 
-        Jugador::whereId($id)->update($datos);
-        return redirect('/jugadors')->with('completed', 'Jugador Actualitzat!');
+        $user = Jugador::where('Username', $peticio->Username)->first();
+        
     }
 
     /**
