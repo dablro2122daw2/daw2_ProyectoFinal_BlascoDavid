@@ -36,7 +36,7 @@ Route::get('/ActualitzarJugador', function () {
 Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
 Route::get('/logout','ControladorLogin@logout')->name('/');
 
-Route::get('/update','ControladorJugador@update')->name('confirmarActualizacio');
+Route::get('/update','ControladorJugador@update')->name('confirmarActualitzacio');
 Route::get('/destroy','ControladorJugador@destroy')->name('confirmarEliminacio');
 
 Route::resource('jugadors', ControladorJugador::class);

@@ -85,7 +85,20 @@ class ControladorJugador extends Controller
         ]);
 
         $user = Jugador::where('Username', $peticio->Username)->first();
+
         
+        if (isset($user['Password']) && Hash::check($peticio->Password, $user["Password"])){
+            if($peticio->Atribut=='nouUsername'){
+                Jugador::where('Username', $peticio->Username)->update(['Username'=> $peticio->Valor]);
+            }
+            else{
+                Jugador::where('Username', $peticio->Username)->update(['Password'=> Hash::make($peticio->Valor)]);
+            }
+            return redirect('/MenuJugador');
+        }
+        else {
+            return back()->withErrors(['Username' => 'Les credencials no corresponen al seu Compte de Jugador.',]);
+        }
     }
 
     /**
