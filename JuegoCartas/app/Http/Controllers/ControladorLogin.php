@@ -42,7 +42,7 @@ class ControladorLogin extends Controller
 
       if (isset($user['Password']) && Hash::check($peticio->Password, $user["Password"])) {
         Auth::login($user);
-        return view('index');
+        return redirect('/MenuJugador');
       }
       else {
         return back()->withErrors([

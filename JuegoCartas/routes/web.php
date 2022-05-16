@@ -33,6 +33,10 @@ Route::get('/ActualitzarJugador', function () {
 });
 
 
+Route::get('/PruebaWebSockets', function () {
+    return view('Prueba');
+});
+
 Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
 Route::get('/logout','ControladorLogin@logout')->name('/');
 
@@ -40,3 +44,19 @@ Route::get('/update','ControladorJugador@update')->name('confirmarActualitzacio'
 Route::get('/destroy','ControladorJugador@destroy')->name('confirmarEliminacio');
 
 Route::resource('jugadors', ControladorJugador::class);
+
+//Route::get('/inicio', 'ControladorInicio@index');
+
+Route::get('/sala/crear', function() {
+    $sala = uniqid();
+
+    return redirect("http://localhost:3000/sala/crear/$sala");
+});
+
+Route::get('/jugar', function() {
+    return view('Jugar');
+});
+
+Route::get('/sala/unirse', function() {
+    return view('UnirseSala');
+});
