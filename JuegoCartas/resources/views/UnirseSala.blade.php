@@ -1,18 +1,34 @@
-<!DOCTYPE html>
-<html lang="es-ES">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <main>
-        <!-- Mantener action, method del form, y el name y type del input al modificar este blade.php --> 
-        <form action="/jugar" method="get">
-            Código de sala: <input type="text" name="sala">
-            <button type="submit">Unirse</button>
+@extends('disseny')
+
+@section('content')
+
+<h1>Connexió a Sala de Joc Creada</h1>
+<div class="card mt-5">
+  <div class="card-header">
+      Especifiqui el Codi de Sala al que vol Unir-se:
+  </div>
+
+  <div class="card-body">
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+        </div>
+        @endif
+        
+        
+        <form method="get" action="/jugar" >
+            @csrf   
+            <div class="form-group">  
+                Codi de Sala</p>
+                <input type="text" class="form-control" name="sala">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Unir-se a Partida</button>
         </form>
-    </main>
-</body>
-</html>
+    </div>
+</div>
+<br><a href="{{ url('/MenuJugador') }}">Tornar Enrrera</a>
+@endsection
