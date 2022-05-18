@@ -24,40 +24,40 @@
       </div>
       <div class="divTablero">
         <table id="tablaPartida" width="700px" height="600px" border="0" cellspacing="2" cellpadding="2" bgcolor="#000000">
-          <tr bgcolor="white">
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
+          <tr style="background-color: white;">
+            <td id="col0" style="background-color: white;"></td>
+            <td id="col1" style="background-color: white;"></td>
+            <td id="col2" style="background-color: white;"></td>
+            <td id="col3" style="background-color: white;"></td>
+            <td id="col4" style="background-color: white;"></td>
           </tr>
-          <tr bgcolor="white">
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
+          <tr style="background-color: white;">
+            <td id="col5" style="background-color: white;"></td>
+            <td id="col6" style="background-color: white;"></td>
+            <td id="col7" style="background-color: white;"></td>
+            <td id="col8" style="background-color: white;"></td>
+            <td id="col9" style="background-color: white;"></td>
           </tr>
-          <tr bgcolor="white">
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
+          <tr style="background-color: white;">
+            <td id="col10" style="background-color: white;"></td>
+            <td id="col11" style="background-color: white;"></td>
+            <td id="col12" style="background-color: white;"></td>
+            <td id="col13" style="background-color: white;"></td>
+            <td id="col14" style="background-color: white;"></td>
           </tr>
-          <tr bgcolor="white">
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
+          <tr style="background-color: white;">
+            <td id="col15" style="background-color: white;"></td>
+            <td id="col16" style="background-color: white;"></td>
+            <td id="col17" style="background-color: white;"></td>
+            <td id="col18" style="background-color: white;"></td>
+            <td id="col19" style="background-color: white;"></td>
           </tr>
-          <tr bgcolor="white">
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
-            <td bgcolor="white"></td>
+          <tr style="background-color: white;">
+            <td id="col20" style="background-color: white;"></td>
+            <td id="col21" style="background-color: white;"></td>
+            <td id="col22" style="background-color: white;"></td>
+            <td id="col23" style="background-color: white;"></td>
+            <td id="col24" style="background-color: white;"></td>
           </tr>
         </table>
       </div>
@@ -66,8 +66,9 @@
         <div id="colorJugadorContrario"></div>
         <h2 id="puntuacionVerde">0</h2>
       </div>
+      </p>
       <div>
-        <button onclick="location.href='/MenuJugador'" id="1">Logout</button>
+        <button onclick="location.href='/MenuJugador'" id="1">Abandonar Partida</button>
       </div>
     </div>
 </body>

@@ -34,6 +34,19 @@ io.on('connection', (socket) => {
   socket.on('unirse', (sala) => {
     socket.join(sala);
     console.log('usuario conectado a la sala: ' + sala);
+    socket.emit('unido', 'unido');
+  });
+
+  socket.on('pintar', (data) => {
+    socket.broadcast.to(data.sala).emit('pintar', data);
+  });
+
+  socket.on('identificar', (sala) => {
+    socket.broadcast.to(sala).emit('identificar', sala);
+  });
+
+  socket.on('identificado', (sala) => {
+    socket.broadcast.to(sala).emit('identificado', sala);
   });
 });
 
