@@ -33,20 +33,7 @@ Route::get('/ActualitzarJugador', function () {
 });
 
 
-Route::get('/PruebaWebSockets', function () {
-    return view('Prueba');
-});
-
-Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
-Route::get('/logout','ControladorLogin@logout')->name('/');
-
-Route::get('/update','ControladorJugador@update')->name('confirmarActualitzacio');
-Route::get('/destroy','ControladorJugador@destroy')->name('confirmarEliminacio');
-
-Route::resource('jugadors', ControladorJugador::class);
-
-//Route::get('/inicio', 'ControladorInicio@index');
-
+//Crear y unir a sala de juegos creadas
 Route::get('/sala/crear', function() {
     $sala = uniqid();
 
@@ -60,3 +47,20 @@ Route::get('/jugar', function() {
 Route::get('/sala/unirse', function() {
     return view('UnirseSala');
 });
+
+
+
+
+Route::get('/PruebaWebSockets', function () {
+    return view('Prueba');
+});
+
+Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
+Route::get('/logout','ControladorLogin@logout')->name('/');
+
+Route::get('/update','ControladorJugador@update')->name('confirmarActualitzacio');
+Route::get('/destroy','ControladorJugador@destroy')->name('confirmarEliminacio');
+
+Route::resource('jugadors', ControladorJugador::class);
+
+//Route::get('/inicio', 'ControladorInicio@index');

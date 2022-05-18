@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+
+}
+
+body {
+    background: linear-gradient(to right, rgb(227, 128, 204), lightgrey);
+}
+
+img {
+    width: 200px;
+}
+
+#express {
+    margin-left: 50px;
+    visibility: hidden;
+}
+
+#websockets {
+    visibility: hidden;
+}
+
+#pug {
+    margin-left: -1050px;
+    width: 210px;
+
+}
+
+#titulo {
+    margin-left: -250px;
+    width: 110px;
+}
