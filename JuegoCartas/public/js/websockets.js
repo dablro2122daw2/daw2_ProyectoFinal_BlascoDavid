@@ -4,10 +4,12 @@ var color = 'red';
 var sala = params.get('sala');
 var rojo = 0;
 var verde = 0;
+var host = location.host.split(':')[0];
+var user = getCookie('username');
 
 window.onload = ()=> {
 
-    var socket = io("ws://localhost:3000");
+    var socket = io("ws://" + host + ":3000");
     var puntuacionRojo = document.getElementById('puntuacionRojo');
     var puntuacionVerde = document.getElementById('puntuacionVerde'); 
 
@@ -49,16 +51,31 @@ window.onload = ()=> {
     });
 
     socket.on('unido', (data) => {
-        socket.emit('identificar', sala);
+        socket.emit('identificar', { sala: sala, user: user } );
     });
 
     socket.on('identificar', (data) => {
         players++;
-        socket.emit('identificado', sala);
+        socket.emit('identificado', { sala: sala, user: user });
+        document.getElementById('jugador1').innerText = user;
+        document.getElementById('jugador2').innerText = data.user;
     });
 
     socket.on('identificado', (data) => {
         color = 'green';
         players++;
+        document.getElementById('jugador1').innerText = data.user;
+        document.getElementById('jugador2').innerText = user;
     });
+}
+
+function getCookie(key) {
+    var array = document.cookie.split('; ');
+    var cookies = new Map();
+
+    array.forEach(item => {
+        cookies.set(item.split('=')[0], item.split('=')[1]);
+    });
+
+    return cookies.get(key);
 }

@@ -42,6 +42,7 @@ class ControladorLogin extends Controller
 
       if (isset($user['Password']) && Hash::check($peticio->Password, $user["Password"])) {
         Auth::login($user);
+        setcookie('username', $peticio->Username);
         return redirect('/MenuJugador');
       }
       else {
@@ -53,6 +54,7 @@ class ControladorLogin extends Controller
 
   public function logout(){
     Auth::logout();
+    unset($_COOKIE["username"]);
     return redirect('/');
   }
 }

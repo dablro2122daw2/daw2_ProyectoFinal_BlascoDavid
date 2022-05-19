@@ -41,12 +41,12 @@ io.on('connection', (socket) => {
     socket.broadcast.to(data.sala).emit('pintar', data);
   });
 
-  socket.on('identificar', (sala) => {
-    socket.broadcast.to(sala).emit('identificar', sala);
+  socket.on('identificar', (data) => {
+    socket.broadcast.to(data.sala).emit('identificar', data);
   });
 
-  socket.on('identificado', (sala) => {
-    socket.broadcast.to(sala).emit('identificado', sala);
+  socket.on('identificado', (data) => {
+    socket.broadcast.to(data.sala).emit('identificado', data);
   });
 });
 

@@ -23,12 +23,20 @@ img {
     visibility: hidden;
 }
 
-#pug {
-    margin-left: -885px;
-    width: 250px;
+.imagenesMenu1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 8px;
+}
+
+.imagenesMenu1 img {
+    width: 300px;
+    border: 2px solid black;
 }
 
 #titulo {
     margin-left: -750px;
     width: 110px;
 }
+

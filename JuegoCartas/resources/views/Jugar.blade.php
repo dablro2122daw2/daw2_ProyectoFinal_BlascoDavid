@@ -12,20 +12,27 @@
 </head>
 <body>
 <div class="header">
-      <div class="imagenesMenu1"></div>
-      <div class="imagenesMenu1"><img id="pug" src="/imgs/pug.png"/></div>
+      <div class="imagenesMenu1">
+        <img id="pug" src="/imgs/pug.png"/>
+      </div>
     </div>
     <div id="timer">
-      <button onclick="location.href='/MenuJugador'" id="timer">Abandonar Partida</button>
+      <button onclick="location.href='/MenuJugador'" id="timer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+          <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+        </svg>
+        <span>Abandonar Partida</span>
+      </button>
     </div>
     <div class="divGame">
       <div class="jugadorTu">
-        <h4>Jugador 1</h4><img id="user" src="/imgs/user.png"/>
+        <h4 id="jugador1">Jugador 1</h4><img id="user" src="/imgs/user.png"/>
         <div id="colorJugadorTu"></div>
         <h2 id="puntuacionRojo">0</h2>
       </div>
       <div class="divTablero">
-        <table id="tablaPartida" width="700px" height="600px" border="0" cellspacing="2" cellpadding="2" bgcolor="#000000">
+        <table id="tablaPartida">
           <tr style="background-color: white;">
             <td id="col0" style="background-color: white;"></td>
             <td id="col1" style="background-color: white;"></td>
@@ -64,7 +71,7 @@
         </table>
       </div>
       <div class="jugadorContrario">
-        <h4>Jugador 2</h4><img id="user" src="/imgs/user2.png"/>
+        <h4 id="jugador2">Jugador 2</h4><img id="user" src="/imgs/user2.png"/>
         <div id="colorJugadorContrario"></div>
         <h2 id="puntuacionVerde">0</h2>
       </div>
