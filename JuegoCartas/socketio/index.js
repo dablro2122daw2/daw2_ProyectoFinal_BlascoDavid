@@ -8,24 +8,6 @@ const io = new Server(server, {
     origin: "*"
   }
 });
-const salas = [];
-
-app.get('/sala/crear/:sala', (req, res) => {
-  let exito = crearSala(req.params.sala);
-
-  if (exito) res.redirect('http://localhost:8000/jugar?sala=' + req.params.sala);
-  else res.redirect('http://localhost:8000/MenuJugador');
-});
-
-function crearSala(sala) {
-  if (salas.findIndex(item => item === sala) == -1) {
-    salas.push(sala);
-    console.log('Sala creada: ' + sala);
-    return true;
-  } else {
-    return false;
-  }
-}
 
 io.on('connection', (socket) => {
   console.log('a user connected');

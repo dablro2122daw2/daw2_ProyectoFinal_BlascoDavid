@@ -26,8 +26,9 @@ img {
 .imagenesMenu1 {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     padding: 8px;
+    align-items: center;
 }
 
 .imagenesMenu1 img {
@@ -40,3 +41,25 @@ img {
     width: 110px;
 }
 
+
+.code {
+    font-size: 24pt;
+}
+
+.copy {
+    display: inline-flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    background-color: #1ea16f;
+}
+
+.copy:hover {
+    background-color: #30e9a2;
+}
+
+.copy:active {
+    background-color: lightgray;
+}

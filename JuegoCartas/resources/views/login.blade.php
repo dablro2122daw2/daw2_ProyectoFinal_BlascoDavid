@@ -1,6 +1,6 @@
 @extends('disseny')
 @section('content')
-<h1>Accés al menu principal</h1>
+<h1>Accés al Menu Principal</h1>
 <div class="card mt-5">
  <div class="card-header">
  Validació del Jugador
@@ -29,4 +29,5 @@
  </form>
  </div>
 </div>
+<br><a href="{{ url('/') }}">Tornar Enrrera</a>
 @endsection

@@ -79,3 +79,9 @@ function getCookie(key) {
 
     return cookies.get(key);
 }
+
+function copy() {
+    var code = document.getElementById('code');
+
+    navigator.clipboard.writeText(code.innerText);
+}

@@ -37,11 +37,11 @@ Route::get('/ActualitzarJugador', function () {
 Route::get('/sala/crear', function() {
     $sala = uniqid();
 
-    return redirect("http://localhost:3000/sala/crear/$sala");
+    return redirect("/jugar?sala=$sala");
 });
 
 Route::get('/jugar', function() {
-    return view('Jugar');
+    return view('Jugar', ['sala' => $_GET["sala"]]);
 });
 
 Route::get('/sala/unirse', function() {

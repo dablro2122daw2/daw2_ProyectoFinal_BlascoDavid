@@ -34,5 +34,5 @@
       </form>
   </div>
 </div>
-<br><a href="{{ url('/welcome') }}">Tornar Enrrera</a>
+<br><a href="{{ url('/') }}">Tornar Enrrera</a>
 @endsection
